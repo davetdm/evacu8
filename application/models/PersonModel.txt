@@ -1,0 +1,110 @@
+<?php
+<<<<<<< HEAD
+
+class PersonModel extends CI_Model {
+
+    public function __construct()
+    {
+      parent::__construct();
+    }
+    //this function is for creating a person.
+    public function add_person($data)
+    {
+      $this->db->insert('person', $data);
+      return true;
+    }
+    //this function is for getting data from the database.
+    public function getProducts()
+    {
+      $this->db->select("*"); 
+      $this->db->from('person');
+      $query = $this->db->get();
+      return $query->result();
+    }
+    public function person($id)
+    {
+      $this->db->select("*"); 
+      $this->db->from('person');
+      $this->db->where('id', $id);
+      $query = $this->db->get();
+      return $query->result()[0];
+    }
+    public function update($id)
+    {
+        $data=array(
+            'id'=>$this->input->post('id'),
+            'type'=>$this->input->post('type'),
+            'first_name'=>$this->input->post('first_name'),
+            'last_name'=>$this->input->post('last_name'),
+            'id_passport'=>$this->input->post('id_passport'), 
+            'email' => $this->input->post('email'), 
+            'mobile' => $this->input->post('mobile'), 
+            'date_added' =>  date('d-m-y',strtotime($this->input->post('date_added'))),
+            'date_deleted' => date('d-m-y',strtotime($this->input->post('date_deleted'))),
+            'deleted' => false
+            );
+=======
+class PersonModel extends CI_Model
+{
+    public function __construct() {
+        parent::__construct();
+      }
+
+      public function addPerson($data){
+          
+        $this->db->insert('person', $data);
+        return true;
+
+        $this->load->view('personForm');
+      }
+
+      function getPerson()
+      {
+          $this->db->select("id,type,first_name,last_name, id_passport,email,mobile,date_added,date_deleted"); 
+          $this->db->from('person');
+          $query = $this->db->get();
+          return $query->result();
+       }
+
+       function singlePerson($id){
+
+        $this->db->select("id,type,first_name,last_name, id_passport,email,mobile,date_added,date_deleted"); 
+        $this->db->from('person');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        return $query->result()[0];
+    }
+     
+
+      public function update($id, $data)
+       {
+        $data = array(
+          'id'=>$this->input->post('id'),
+          'type'=>$this->input->post('type'),
+          'first_name'=>$this->input->post('first_name'),
+          'last_name'=>$this->input->post('last_name'),
+          'id_passport'=>$this->input->post('id_passport'),
+          'email' => $this->input->post('email'),
+          'mobile' => $this->input->post('mobile'),
+          'date_added' =>  date('Y-m-d',strtotime($this->input->post('date_added'))),
+          );
+>>>>>>> 15287478b2b24b90702902a65b89b1ffbd1bae45
+        if($id==0){
+            return $this->db->insert('person',$data);
+        }else{
+            $this->db->where('id',$id);
+            return $this->db->update('person',$data);
+        }        
+  
+<<<<<<< HEAD
+    }
+    //this function is for deleting the person info. 
+    public function delete($id) 
+    {
+      $this->db->query("delete  from person where id='".$id."'");
+    }
+}
+=======
+      }
+    }
+>>>>>>> 15287478b2b24b90702902a65b89b1ffbd1bae45
