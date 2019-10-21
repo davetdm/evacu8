@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <?php require_once "header.php"; ?>
 <?php
-$person = $this->data;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,9 @@ $person = $this->data;
             <h2> Person</h2>
             <br>
                 <div class="content-bottom">
+                <?php foreach ($persons as $person) {?>
                 <?php echo form_open('person/update_person','id="personForm"'); ?>
+               
                         <div class="field-group">
                             <div class="content-input-field">
                                 <input name="id" id="id" type="text" value="<?php echo $person->id; ?>" placeholder="ID" required="">
@@ -69,7 +71,9 @@ $person = $this->data;
                             <a href="<?php echo base_url(); ?>person/view_person" 
                             class="btn btn-primary btn-lg btn-block">List Person</a>
                         </div>  
+                       
                     </form>
+                    <?php }?>
                 </div>
             </div>
         </div>

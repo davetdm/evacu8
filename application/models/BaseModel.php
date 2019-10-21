@@ -74,6 +74,7 @@ class BaseModel extends CI_Model {
      */
     public function select($pk = null){
         if (!is_null($pk)) {
+            $this->set_fields();
             $this->db->select('*');
             $query = $this->db->get_where($this->table, [$this->fields['pk'] => $pk]);
            return $query->row();
@@ -141,6 +142,7 @@ class BaseModel extends CI_Model {
      */
     public function update($data){
         if (is_array($data)){
+            $this->set_fields();
             $this->db->where("{$this->fields['pk']}", $data[$this->fields['pk']]);
             $this->db->update($this->table, $data);
             return $this->db->affected_rows();
@@ -155,6 +157,7 @@ class BaseModel extends CI_Model {
      */
     public function delete($pk){
         if (!is_null($pk)){
+            $this->set_fields();
             $this->db->where($this->fields['pk'], $pk);
             $this->db->delete($this->table);
             // if(!$query){
