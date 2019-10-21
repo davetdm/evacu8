@@ -13,7 +13,7 @@
             <h5 class="my-0 mr-md-auto font-weight-normal">Evacu8</h5>
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="/">Home</a>
-                <a class="p-2 text-dark" href="#">Person</a>
+                <a class="p-2 text-dark" href="person">Person</a>
                 <a class="p-2 text-dark" href="#">Tags</a>
                 <a class="p-2 text-dark" href="#">Movement</a>
                 <a class="p-2 text-dark" href="#">Payload</a>
