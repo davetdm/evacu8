@@ -122,4 +122,25 @@ class Person extends CI_Controller{
      $this->load->view("delete_person", $data);
     }
    
+   public function delete_person($id)
+   {
+        //start the transaction
+        $this->db->trans_begin();
+        //delete person
+        $id=$this->input->get('id');
+	    $this->Persons->delete($id);
+        //make transaction complete
+        $this->db->trans_complete();
+        //check if transaction status TRUE or FALSE
+        if ($this->db->trans_status() === FALSE) {
+            //if something went wrong, rollback everything
+            $this->db->trans_rollback();
+        return FALSE;
+        } else {
+            //if everything went right, delete the data from the database
+            $this->db->trans_commit();
+            return TRUE;
+        }
+    }
+
 }
