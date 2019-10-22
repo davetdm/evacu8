@@ -56,3 +56,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 // Custome routes
 $route["person/view-person"] = "/person/view_person";
+$route["person/update-person"] = "/person/update_person";

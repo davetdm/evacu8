@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="content-grid">
                 <h2>Delete Person</h2>
                 <form id="deleteForm" action="<?php echo base_url(); ?>person/delete_person" method="post">
-                    <input first_name="id" type="hidden" value="<?php echo $person->id; ?>">
+                    <input name="id" id="id" type="hidden" value="<?php echo $person->id; ?>">
                     <br/>
                     <p>
                     <h4>Are you sure you want to delete <?php echo $person->first_name ?><br/></h4>

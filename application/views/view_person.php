@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td><?php echo  $person->date_added; ?></td>
                         <td><?php echo  $person->date_deleted; ?></td>
                         <td>
-                            <a href="<?php echo base_url(); ?>person/edit_person?id=<?php echo $person->id; ?>" ><i>Edit</i></a>
+                            <a href="<?php echo base_url(); ?>person/update_person?id=<?php echo $person->id; ?>" ><i>Edit</i></a>
                             <a href="<?php echo base_url(); ?>person/delete_data?id=<?php echo $person->id; ?>">
                                 <i>Delete</i>
 
