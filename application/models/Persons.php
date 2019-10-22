@@ -37,5 +37,8 @@ class Persons extends BaseModel {
         $query = $this->db->get();
         return $query->result()[0];
     } 
-    
+    public function delete($id) 
+    {
+      $this->db->query("delete  from person where id='".$id."'");
+    } 
 }
