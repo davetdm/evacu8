@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<?php require_once "header.php"; ?>
+<?php require_once VIEWPATH . "header.php"; ?>
 <?php
 
 ?>
@@ -18,8 +18,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <h2> Person</h2>
             <br>
                 <div class="content-bottom">
-                <?php foreach ($persons as $person) {?>
-                <?php echo form_open('person/update_person','id="personForm"'); ?>
+               
+                <?php echo form_open('person/save_person','id="updateForm"'); ?>
                
                         <div class="field-group">
                             <div class="content-input-field">
@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="field-group">
                             <div class="content-input-field">
-                                <input name="first_name" id="first_name" type="text" value="<?php echo $person->id; ?>" placeholder="First Name" required="">
+                                <input name="first_name" id="first_name" type="text" value="<?php echo $person->first_name; ?>" placeholder="First Name" required="">
                             </div>
                         </div>
                         <div class="field-group">
@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="field-group">
                             <div class="content-input-field">
-                            <select name="type" id="type">
+                            <select name="type" id="type" value="<?php echo $person->type; ?>">
                                 <option value="employee">Employee</option>
                                 <option value="visitor">Visitor</option>
                                 <option value="contractor">Contractor</option>
@@ -73,11 +73,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>  
                        
                     </form>
-                    <?php }?>
+                    
                 </div>
             </div>
         </div>
  </section>
 </body>
 </html>
-<?php require_once "footer.php"; ?>
+<?php require VIEWPATH . "footer.php"; ?>

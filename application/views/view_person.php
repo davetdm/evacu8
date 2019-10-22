@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?> <!DOCTYPE html>
+?> 
+<?php require_once  VIEWPATH . "header.php"; ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -53,3 +55,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 </body>
 </html>
+<?php require VIEWPATH . "footer.php"; ?>

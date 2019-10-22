@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<?php require_once "header.php"; ?>
+<?php require_once  VIEWPATH . "header.php"; ?>
  <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,10 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                         <br>
-                        <div class="field-group">
-                            <div class="content-input-field">
-                                <input name="date_added" id="date_added" type="date" value="" required="">
-                            </div>
+                       
                             <br>
                         <div class="content-input-field">                         
                             <button  type="submit" class="btn btn-primary btn-lg">Add Person</button>
@@ -76,4 +73,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  </section>
 </body>
 </html>
-<?php require_once "footer.php"; ?>
+<?php require VIEWPATH . "footer.php"; ?>

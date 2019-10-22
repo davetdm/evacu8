@@ -21,23 +21,25 @@ class Persons extends BaseModel {
     //this function will update the person info.
     public function update_person($id)
     {
-       // $data = array(
-            $id =strip_tags($this->input->post('id'));
-            // 'type'=>strip_tags($this->input->post('type')),
-            // 'first_name'=>strip_tags($this->input->post('first_name')),
-            // 'last_name'=>strip_tags($this->input->post('last_name')),
-            // 'id_passport'=>strip_tags($this->input->post('id_passport')), 
-            // 'email' =>strip_tags($this->input->post('email')), 
-            // 'mobile' =>strip_tags($this->input->post('mobile')), 
-            // 'date_added' =>date('Y-m-d',strtotime(utils::getDate()))       
-            // );
+    //    $data = array(
+    //         'type'=>strip_tags($this->input->post('type')),
+    //         'first_name'=>strip_tags($this->input->post('first_name')),
+    //         'last_name'=>strip_tags($this->input->post('last_name')),
+    //         'id_passport'=>strip_tags($this->input->post('id_passport')), 
+    //         'email' =>strip_tags($this->input->post('email')), 
+    //         'mobile' =>strip_tags($this->input->post('mobile')), 
+    //         'date_added' =>date('Y-m-d',strtotime(utils::getDate()))       
+    //         );
 
-        if($id==0){
-            return $this->db->insert('person',$data);
-        }else{
-            $this->db->where('id',$id);
-            return $this->db->update('person',$data);
-        }        
+        // if($id==0){
+        //     return $this->db->insert('person',$data);
+        // }else{
+        //     $this->db->where('id',$id);
+        //     return $this->db->update('person',$data);
+        // }      
+        $this->db->where('id', $id);
+        $this->db->update('person', $data);  
+        return true;
 
     }   
     public function get_person()
@@ -56,5 +58,10 @@ class Persons extends BaseModel {
         $query = $this->db->get();
         return $query->result()[0];
     } 
+    public function delete($id) 
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('person');
+    }
     
 }
