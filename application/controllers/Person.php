@@ -68,9 +68,10 @@ class Person extends CI_Controller{
             'person' => $person
         ];
        
-        $data['persons'] = $this->Persons->get_person();
+        //$data['persons'] = $this->Persons->get_person();
         $this->load->view("update_person", $data); 
-    }  
+    } 
+    //this function will update the person data
    public function save_person()
    {
         if ($this->input->method() != "post"){
@@ -80,9 +81,8 @@ class Person extends CI_Controller{
         try {
             echo "<pre/>";
             $this->db->trans_begin();
-
+            $id = strip_tags($this->input->post('id'));
             $data = array(
-                $id =>strip_tags($this->input->post('id')),
                 'type'=>strip_tags($this->input->post('type')),
                 'first_name'=>strip_tags($this->input->post('first_name')),
                 'last_name'=>strip_tags($this->input->post('last_name')),

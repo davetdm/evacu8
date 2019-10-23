@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                
                         <div class="field-group">
                             <div class="content-input-field">
-                                <input name="id" id="id" type="text" value="<?php echo $person->id; ?>" placeholder="ID" required="">
+                                <input name="id" id="id" type="hidden" value="<?php echo $person->id; ?>" placeholder="ID" required="">
                             </div>
                         </div>
                         <div class="field-group">
@@ -51,19 +51,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <input name="mobile" id="mobile" type="text" value="<?php echo $person->mobile; ?>" placeholder="Mobile" required="">
                             </div>
                         </div>
+                        <br>
                         <div class="field-group">
                             <div class="content-input-field">
                             <select name="type" id="type" value="<?php echo $person->type; ?>">
+                                <option value="">Select type</option>
                                 <option value="employee">Employee</option>
                                 <option value="visitor">Visitor</option>
                                 <option value="contractor">Contractor</option>
                             </select> 
                             </div>
                         </div>
+                        <br>
                         <div class="field-group">
-                            <div class="content-input-field">
-                                <input name="date_added" id="date_added" type="date" value="<?php echo $person->date_added; ?>" placeholder="Date Added" required="">
-                            </div>
+                    
                         <div class="content-input-field">                         
                             <button  type="submit" class="btn btn-primary btn-lg">Save Person</button>
                         </div>

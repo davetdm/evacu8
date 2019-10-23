@@ -49,6 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="field-group">
                             <div class="content-input-field">
                             <select name="type" id="type">
+                                <option value="0">Select type</option>
                                 <option value="employee">Employee</option>
                                 <option value="visitor">Visitor</option>
                                 <option value="contractor">Contractor</option>
@@ -59,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                        
                             <br>
                         <div class="content-input-field">                         
-                            <button  type="submit" class="btn btn-primary btn-lg">Add Person</button>
+                            <button  type="submit" onsubmit ="return Validate();" class="btn btn-primary btn-lg">Add Person</button>
                         </div>
                         <br>
                         <div class="content-input-field">

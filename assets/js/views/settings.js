@@ -74,6 +74,35 @@ $(document).ready(function () {
     
         return false;
     });
+
+    $('#personForm').submit(function () {
+
+        var a = document.forms["personForm"]["email"].value;
+        if (a == null || a == "") {
+            alert("You forgot to enter your Email!");
+            return false;
+        } else {
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (a.match(mailformat)) {
+                document.personForm.email.focus();
+            } else {
+                alert("You have entered an invalid Email Address!");
+                document.personForm.email.focus();
+                return false;
+            }
+        }
+    
+    });
+
+    function Validate() {
+        var type= document.getElementById("type");
+        if (type.value == "0") {
+            alert("Please select an option!");
+            return false;
+        }
+        return true;
+    }
+
 });
 
 
