@@ -15,40 +15,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <section class="banner-bottom py-5">
         <div class="container">
             <div class="content-grid">
-            <h2> Person</h2>
+            <h2>Edit Person</h2>
             <br>
                 <div class="content-bottom">
-                <?php foreach ($persons as $person) {?>
-                <?php echo form_open('person/update_person','id="personForm"'); ?>
-               
+                <?php echo form_open('person/save_person','id="saveForm"'); ?>
+                    <input name="id" type="hidden" value="<?php echo $person->id; ?>">
                         <div class="field-group">
                             <div class="content-input-field">
-                                <input name="id" id="id" type="text" value="<?php echo $person->id; ?>" placeholder="ID" required="">
+                            <input name="first_name" id="first_name" type="text" value="<?php echo $person->first_name; ?>" placeholder="First Name" required="">
                             </div>
                         </div>
                         <div class="field-group">
                             <div class="content-input-field">
-                                <input name="first_name" id="first_name" type="text" value="<?php echo $person->id; ?>" placeholder="First Name" required="">
+                            <input name="last_name" id="last_name" type="text" value="<?php echo $person->last_name; ?>" placeholder="Last Name" required="">
                             </div>
                         </div>
                         <div class="field-group">
                             <div class="content-input-field">
-                                <input name="last_name" id="last_name" type="text" value="<?php echo $person->last_name; ?>" placeholder="Last Name" required="">
+                            <input name="id_passport" id="id_passport" type="text" value="<?php echo $person->id_passport; ?>" placeholder="ID Or Passport" required="">
                             </div>
                         </div>
                         <div class="field-group">
                             <div class="content-input-field">
-                                <input name="id_passport" id="id_passport" type="text" value="<?php echo $person->id_passport; ?>" placeholder="ID Or Passport" required="">
+                          
+                            <input name="email" id="email" type="text" value="<?php echo $person->email; ?>" placeholder="Email Address" required="">
                             </div>
                         </div>
                         <div class="field-group">
                             <div class="content-input-field">
-                                <input name="email" id="email" type="text" value="<?php echo $person->email; ?>" placeholder="Email Address" required="">
-                            </div>
-                        </div>
-                        <div class="field-group">
-                            <div class="content-input-field">
-                                <input name="mobile" id="mobile" type="text" value="<?php echo $person->mobile; ?>" placeholder="Mobile" required="">
+                            <input name="mobile" id="mobile" type="text" value="<?php echo $person->mobile; ?>" placeholder="Mobile" required="">
                             </div>
                         </div>
                         <div class="field-group">
@@ -62,22 +57,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="field-group">
                             <div class="content-input-field">
-                                <input name="date_added" id="date_added" type="date" value="<?php echo $person->date_added; ?>" placeholder="Date Added" required="">
+                            <input name="date_added" id="date_added" type="date" value="<?php echo $person->date_added; ?>" placeholder="Date Added" required="">
                             </div>
-                        <div class="content-input-field">                         
-                            <button  type="submit" class="btn btn-primary btn-lg">Save Person</button>
                         </div>
-                        <div class="content-input-field">
-                            <a href="<?php echo base_url(); ?>person/view_person" 
-                            class="btn btn-primary btn-lg btn-block">List Person</a>
-                        </div>  
-                       
+                        <br>
+                        <br>
+                        <div class="content-input-field">                         
+                            <button type="submit" id="save" class="btn btn-primary btn-lg">Save Person</button></a> 
+                        </div>
                     </form>
-                    <?php }?>
                 </div>
             </div>
         </div>
  </section>
 </body>
 </html>
+
 <?php require_once "footer.php"; ?>

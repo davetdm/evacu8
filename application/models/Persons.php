@@ -33,10 +33,10 @@ class Persons extends BaseModel {
             // );
 
         if($id==0){
-            return $this->db->insert('person',$data);
+            return $this->db->insert('person',$id);
         }else{
             $this->db->where('id',$id);
-            return $this->db->update('person',$data);
+            return $this->db->update('person',$id);
         }        
 
     }   
@@ -59,5 +59,9 @@ class Persons extends BaseModel {
     public function delete($id) 
     {
       $this->db->query("delete  from person where id='".$id."'");
+    } 
+    public function save_person($data){
+        $this->db->update('person', $data);
+      return true;
     } 
 }
