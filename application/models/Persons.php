@@ -19,26 +19,25 @@ class Persons extends BaseModel {
       return true;
     } 
     //this function will update the person info.
-    public function update_person($id)
+    public function update_person($id, $data)
     {
-       // $data = array(
-            $id =strip_tags($this->input->post('id'));
-            // 'type'=>strip_tags($this->input->post('type')),
-            // 'first_name'=>strip_tags($this->input->post('first_name')),
-            // 'last_name'=>strip_tags($this->input->post('last_name')),
-            // 'id_passport'=>strip_tags($this->input->post('id_passport')), 
-            // 'email' =>strip_tags($this->input->post('email')), 
-            // 'mobile' =>strip_tags($this->input->post('mobile')), 
-            // 'date_added' =>date('Y-m-d',strtotime(utils::getDate()))       
-            // );
+       $data = array(
+           'type'=>strip_tags($this->input->post('type')),
+           'first_name'=>strip_tags($this->input->post('first_name')),
+           'last_name'=>strip_tags($this->input->post('last_name')),
+           'id_passport'=>strip_tags($this->input->post('id_passport')), 
+           'email' =>strip_tags($this->input->post('email')), 
+           'mobile' =>strip_tags($this->input->post('mobile')), 
+           'date_added' =>date('Y-m-d',strtotime(utils::getDate()))       
+            );
 
         if($id==0){
-            return $this->db->insert('person',$id);
+            return $this->db->insert('person',$data);
         }else{
             $this->db->where('id',$id);
-            return $this->db->update('person',$id);
-        }        
-
+            return $this->db->update('person',$data);
+         }      
+       
     }   
     public function get_person()
       {
@@ -58,10 +57,13 @@ class Persons extends BaseModel {
     } 
     public function delete($id) 
     {
-      $this->db->query("delete  from person where id='".$id."'");
-    } 
-    public function save_person($data){
-        $this->db->update('person', $data);
+        $this->db->where('id', $id);
+        $this->db->delete('person');
+    }
+    public function save_person($data)
+    {
+      $this->db->set('person', $data);
       return true;
-    } 
+      $this->load->view('updateForm');
+    }
 }

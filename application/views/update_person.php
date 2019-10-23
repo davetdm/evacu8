@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<?php require_once "header.php"; ?>
+<?php require_once VIEWPATH . "header.php"; ?>
 <?php
 
 ?>
@@ -18,8 +18,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <h2>Edit Person</h2>
             <br>
                 <div class="content-bottom">
-                <?php echo form_open('person/save_person','id="saveForm"'); ?>
-                    <input name="id" type="hidden" value="<?php echo $person->id; ?>">
+               
+                <?php echo form_open('person/save_person','id="updateForm"'); ?>
+               
                         <div class="field-group">
                             <div class="content-input-field">
                             <input name="first_name" id="first_name" type="text" value="<?php echo $person->first_name; ?>" placeholder="First Name" required="">
@@ -27,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="field-group">
                             <div class="content-input-field">
-                            <input name="last_name" id="last_name" type="text" value="<?php echo $person->last_name; ?>" placeholder="Last Name" required="">
+                                <input name="last_name" id="last_name" type="text" value="<?php echo $person->last_name; ?>" placeholder="Last Name" required="">
                             </div>
                         </div>
                         <div class="field-group">
@@ -48,29 +49,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="field-group">
                             <div class="content-input-field">
-                            <select name="type" id="type">
+                            <select name="type" id="type" value="<?php echo $person->type; ?>">
                                 <option value="employee">Employee</option>
                                 <option value="visitor">Visitor</option>
                                 <option value="contractor">Contractor</option>
                             </select> 
                             </div>
                         </div>
-                        <div class="field-group">
-                            <div class="content-input-field">
-                            <input name="date_added" id="date_added" type="date" value="<?php echo $person->date_added; ?>" placeholder="Date Added" required="">
-                            </div>
-                        </div>
-                        <br>
+                      
                         <br>
                         <div class="content-input-field">                         
                             <button type="submit" id="save" class="btn btn-primary btn-lg">Save Person</button></a> 
                         </div>
                     </form>
+                    
                 </div>
             </div>
         </div>
  </section>
 </body>
 </html>
-
-<?php require_once "footer.php"; ?>
+<?php require VIEWPATH . "footer.php"; ?>

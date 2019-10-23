@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?> <!DOCTYPE html>
+?> 
+<?php require_once  VIEWPATH . "header.php"; ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -15,13 +17,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <table class="table" style="color: #000000">
                 <thead>
                     <tr>
-                        <th>type</th>
-                        <th>first_name </th>
-                        <th>last_name</th>
-                        <th>id_passport</th>
-                        <th> email</th>
-                        <th> date_added</th>
-                        <th> date_deleted</th>
+                        <th>Type</th>
+                        <th>First_name </th>
+                        <th>Last_name</th>
+                        <th>Id_Passport</th>
+                        <th>Email</th>
+                        <th>Date Added</th>
+                        <th>Date Deleted</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -53,3 +55,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 </body>
 </html>
+<?php require VIEWPATH . "footer.php"; ?>
