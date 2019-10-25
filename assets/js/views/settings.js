@@ -37,25 +37,18 @@ $(document).ready(function () {
         return false;
     });
 
-    $('#personForm').submit(function(){
-
-        var url = $('#personForm').attr("action");
-        var method = $('#personForm').attr("method");
-        var data = $('#personForm').serialize();
-    
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            success: function(response){
-                alert(response);
-                window.location.reload();
+    // Person
+    $("#personForm").submit(function(){
+        $.post($(this).attr("action"), $(this).serialize(), function (resp) {
+            if (resp.status === 'ok') {
+                alert(resp.message);
+            } else if (resp.status === 'error') {
+                alert(resp.message);
             }
-        });
-    
+        }, 'json');
         return false;
     });
-    
+    //Update person
     $('#updateForm').submit(function(){
 
         var url = $('#updateForm').attr("action");
@@ -74,7 +67,7 @@ $(document).ready(function () {
     
         return false;
     });
-
+    //Email
     $('#personForm').submit(function () {
 
         var a = document.forms["personForm"]["email"].value;
@@ -93,16 +86,7 @@ $(document).ready(function () {
         }
     
     });
-
-    function Validate() {
-        var type= document.getElementById("type");
-        if (type.value == "0") {
-            alert("Please select an option!");
-            return false;
-        }
-        return true;
-    }
-
+    
 });
 
 

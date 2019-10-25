@@ -16,7 +16,7 @@ class Person extends CI_Controller{
     $data = [
         'title' => "View Person",
     ];
-    $data['persons'] = $this->Persons->get_person(); 
+    $data['persons'] = $this->PersonModel->get_person(); 
     $this->load->view("view_person", $data);
    }
 
@@ -40,7 +40,7 @@ class Person extends CI_Controller{
                 'mobile' =>strip_tags($this->input->post('mobile')), 
                 'date_added' =>date('Y-m-d',strtotime(utils::getDate()))              
                 );
-            $result = $this->Persons->add_person($data);
+            $result = $this->PersonModel->add_person($data);
             
             if ($this->db->trans_status() === FALSE) {
                 $this->db->trans_rollback();
@@ -62,7 +62,7 @@ class Person extends CI_Controller{
     public function update_person()
     {
         $id = $this->input->get('id');
-        $person = $this->Persons->single_person($id);
+        $person = $this->PersonModel->single_person($id);
         $data = [
             'title' => "Person",
             'person' => $person
@@ -91,7 +91,7 @@ class Person extends CI_Controller{
                 'mobile' =>strip_tags($this->input->post('mobile')), 
                 'date_added' =>date('Y-m-d',strtotime(utils::getDate()))              
                 );
-            $result = $this->Persons->update_person($id, $data);
+            $result = $this->PersonModel->update_person($id, $data);
 
             if ($this->db->trans_status() === FALSE) {
                 $this->db->trans_rollback();
@@ -112,8 +112,8 @@ class Person extends CI_Controller{
    public function delete_data()
    {
       $id = $this->input->get('id');
-      $person= $this->Persons->single_person($id);
-      $result = $this->Persons->delete($id);
+      $person= $this->PersonModel->single_person($id);
+      $result = $this->PersonModel->delete($id);
       $data = [
         "title" => "delete Person",
         "assets" => $this->config->item('assets'),
@@ -128,7 +128,7 @@ class Person extends CI_Controller{
         $this->db->trans_begin();
         //delete person
         $id=$this->input->get('id');
-	    $this->Persons->delete($id);
+	    $this->PersonModel->delete($id);
         //make transaction complete
         $this->db->trans_complete();
         //check if transaction status TRUE or FALSE

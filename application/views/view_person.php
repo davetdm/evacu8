@@ -12,9 +12,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <section class="banner-bottom py-5">
     <div class="container py-md-3">
         <div class="row grids-wthree-info text-center">
-            
-        <h2>Person</h2>
-            <table class="table" style="color: #000000">
+        <div class="card mb-4 shadow-sm">
+              <div class="card-header">   
+              <h2 class="display-4">Person</h2>
+              </div> 
+              <div class="card-body">   
+               <table class="table" style="color: #000000">
                 <thead>
                     <tr>
                         <th>Type</th>
