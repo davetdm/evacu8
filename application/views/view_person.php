@@ -18,12 +18,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <thead>
                     <tr>
                         <th>Type</th>
-                        <th>First_name </th>
-                        <th>Last_name</th>
-                        <th>Id_Passport</th>
+                        <th>First name </th>
+                        <th>Last name</th>
+                        <th>Id Or Passport</th>
                         <th>Email</th>
-                        <th>Date Added</th>
-                        <th>Date Deleted</th>
+                        <th>Mobile no</th>
+                        <th>Date added</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -36,8 +36,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td><?php echo  $person->last_name; ?></td>
                         <td><?php echo  $person->id_passport; ?></td>
                         <td><?php echo  $person->email; ?></td>
+                        <td><?php echo  $person->mobile; ?></td>
                         <td><?php echo  $person->date_added; ?></td>
-                        <td><?php echo  $person->date_deleted; ?></td>
                         <td>
                             <a href="<?php echo base_url(); ?>person/update_person?id=<?php echo $person->id; ?>" ><i>Edit</i></a>
                             <a href="<?php echo base_url(); ?>person/delete_data?id=<?php echo $person->id; ?>">

@@ -145,15 +145,17 @@ $autoload['language'] = array();
 
 $autoload['model'] = array(
     "BaseModel",
-    "Configs",
-    "Groups",
-    "GroupConfig",
-    "Tags",
-    "TagGroup",
-    "TagConfig",
+    "ConfigsModel",
+    "GroupsModel",
+    "GroupConfigModel",
+    "TagsModel",
+    "TagGroupModel",
+    "TagConfigModel",
     "Persons",
-    "PersonTag",
-    "Employees",
-    "Visitors",
-    "Contractors"
+    "PersonModel",
+    "PersonTagModel",
+    "EmployeesModel",
+    "VisitorsModel",
+    "ContractorsModel",
+    "AnchorsModel"
 );
