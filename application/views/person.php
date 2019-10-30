@@ -1,73 +1,59 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<?php require_once  VIEWPATH . "header.php"; ?>
- <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Person</title>
-</head>
-<body>
-<section class="banner-bottom py-5">
-        <div class="container">
-            <div class="content-grid">
+
+
+<?php require VIEWPATH . "header.php"; ?>
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Persons</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <a href="/person" class="btn btn-primary btn-block">Persons</a>
+            <a href="/person/add" class="btn btn-primary btn-block">Add Person</a>
+        </div>
+        <div class="col-md-10">
             <div class="card mb-4 shadow-sm">
                 <div class="card-header">
-            <h2>Add Person</h2>
-            </div>
-            <div class="card-body">
-            <br>
-                <div class="content-bottom">
-                <?php echo form_open('person/add_person','id="personForm"'); ?>
-                        <div class="field-group">
-                            <div class="content-input-field">
-                                <input name="first_name" id="first_name" type="text" value="" placeholder="First Name" required="">
-                            </div>
-                        </div>
-                        <div class="field-group">
-                            <div class="content-input-field">
-                                <input name="last_name" id="last_name" type="text" value="" placeholder="Last Name" required="">
-                            </div>
-                        </div>
-                        <div class="field-group">
-                            <div class="content-input-field">
-                                <input name="id_passport" id="id_passport" type="text" value="" placeholder="ID Or Passport" required="">
-                            </div>
-                        </div>
-                        <div class="field-group">
-                            <div class="content-input-field">
-                                <input name="email" id="email" type="text" value="" placeholder="Email Address" required="">
-                            </div>
-                        </div>
-                        <div class="field-group">
-                            <div class="content-input-field">
-                                <input name="mobile" id="mobile" type="text" value="" placeholder="Mobile" required="">
-                            </div>
-                        </div>
-                        <div class="field-group">
-                            <div class="content-input-field">
-                            <select name="type" id="type">
-                                <option value="employee">Employee</option>
-                                <option value="visitor">Visitor</option>
-                                <option value="contractor">Contractor</option>
-                            </select> 
-                            </div>
-                        </div>
-                        <br>
-                        <div class="content-input-field">                         
-                            <button  type="submit" class="btn btn-primary btn-lg">Add Person</button>
-                        </div>
-                        <br>
-                        <div class="content-input-field">
-                            <a href="<?php echo base_url(); ?>person/view_person" 
-                            btn btn-primary>List Person</a>
-                        </div>  
-                    </form>
+                    <h4 class="my-0 font-weight-normal">Persons</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Person</th>
+                                <th>Id Or Passport</th>
+                                <th>Email</th>
+                                <th>Mobile no</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <?php foreach($persons  as $person){ ?>
+                                <tr>
+                                    <td> <?php echo $person->type; ?></td>
+                                    <td><?php echo  $person->first_name . " " .  $person->last_name;?></td>
+                                    <td><?php echo  $person->id_passport; ?></td>
+                                    <td><?php echo  $person->email; ?></td>
+                                    <td><?php echo  $person->mobile; ?></td>
+                                    <td>
+                                        <a href="/person/view?h=<?=utils::hashed()?>&id=<?php echo $person->id; ?>">edit</a> |
+                                        <a href="/person/delete?h=<?=utils::hashed()?>&id=<?php echo $person->id; ?>" class="text-danger">delete</a>
+                                    </td>
+                                </tr>
+                            <?php }; ?>
+                        </tbody>          
+                    </table>
                 </div>
             </div>
+           
         </div>
- </section>
-</body>
-</html>
+    </div>
+</div>
+
 <?php require VIEWPATH . "footer.php"; ?>
+

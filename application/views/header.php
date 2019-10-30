@@ -13,6 +13,7 @@
                 <a class="p-2 text-dark" href="/">Home</a>
                 <a class="p-2 text-dark" href="/person">Person</a>
                 <a class="p-2 text-dark" href="/tags">Tags</a>
+                <a class="p-2 text-dark" href="/anchors">Anchors</a>
                 <a class="p-2 text-dark" href="/movement">Movement</a>
                 <a class="p-2 text-dark" href="/payload">Payload</a>
                 <a class="p-2 text-dark" href="/settings">Settings</a>

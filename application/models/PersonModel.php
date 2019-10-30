@@ -12,12 +12,18 @@ class PersonModel extends BaseModel {
 
     public function __construct() {
         parent::__construct("person");
-    } 
+    }
+
+    /**
+     * This is un-acceptable; all this logic is provided by the base model:
+     * All CRUD is provided by the base model.
+     */
     //this function will insert person data  
     public function add_person($data){
         $this->db->insert('person', $data);
       return true;
-    } 
+    }
+
     //this function will update the person info.
     public function update_person($id, $data)
     {
@@ -37,7 +43,8 @@ class PersonModel extends BaseModel {
             $this->db->where('id',$id);
             return $this->db->update('person',$data);
         }   
-    }  
+    }
+
     //this function will get person data from database. 
     public function get_person()
     {
@@ -54,7 +61,8 @@ class PersonModel extends BaseModel {
         $this->db->where('id', $id);
         $query = $this->db->get();
         return $query->result()[0];
-    } 
+    }
+
     //this function will delete person.
     public function delete($id) 
     {
