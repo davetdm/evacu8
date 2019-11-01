@@ -64,7 +64,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <select name="group_id">
+                            <select name="group_id" class="form-control">
                                 <option value=""> -- select group</option>
                                 <?php foreach($groups as $group){
                                     echo "<option value='$group->id'>$group->name</option>";
@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <select name="config_id">
+                            <select name="config_id" class="form-control">
                                 <option value=""> -- select config</option>
                                 <?php foreach($configs as $config){
                                     echo "<option value='$config->id'>$config->name</option>";

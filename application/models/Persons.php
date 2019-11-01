@@ -15,7 +15,7 @@ class Persons extends BaseModel {
     } 
     //this function will insert person data  
     public function add_person($data){
-        $this->db->insert('person', $data);
+      $this->db->insert('person', $data);
       return true;
     } 
     //this function will update the person info.
@@ -38,6 +38,7 @@ class Persons extends BaseModel {
             return $this->db->update('person',$data);
         }   
     }   
+    //this function will get all the person data from database
     public function get_person()
     {
         $this->db->select("id,type,first_name,last_name, id_passport,email,mobile,date_added,date_deleted"); 
@@ -45,7 +46,7 @@ class Persons extends BaseModel {
         $query = $this->db->get();
         return $query->result();
     }  
-
+    //this function will get data for single person.
     public function single_person($id)
     {
         $this->db->select("id,type,first_name,last_name, id_passport,email,mobile,date_added,date_deleted"); 
@@ -54,6 +55,7 @@ class Persons extends BaseModel {
         $query = $this->db->get();
         return $query->result()[0];
     } 
+    //this function will delete the person data.
     public function delete($id) 
     {
         $this->db->where('id', $id);

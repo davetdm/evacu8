@@ -12,5 +12,10 @@ class TagsModel extends BaseModel {
 
     public function __construct() {
         parent::__construct("tags");
-    }       
+    }  
+    public function add_tag()
+    {
+      $this->db->insert('tags', $data);
+      return true;
+    }     
 }

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tags extends CI_Controller{
+class Anchors extends CI_Controller{
 
     public function __construct(){
         parent::__construct();
@@ -13,7 +13,7 @@ class Tags extends CI_Controller{
         $data = [
             'title' => "Evacu8",
         ];
-       $this->load->view("tags", $data);  
+       $this->load->view("anchors", $data);  
     }
 
     public function add(){

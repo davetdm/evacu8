@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                    
                     <div class="content-input-field">                         
                     <a href="<?php echo base_url(); ?>person/view_person" 
-                            class="btn btn-primary btn-lg btn-block">ok</a>
+                            class="btn btn-primary btn-lg">List Person</a>
                     </div>
                 </form>
                 
