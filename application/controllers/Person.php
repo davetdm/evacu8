@@ -51,11 +51,6 @@ class Person extends CI_Controller{
         }
         try {
             $this->db->trans_begin();
-<<<<<<< HEAD
-=======
-            // there is no need to define another method to add: check base_model
-            // $result = $this->PersonModel->add_person($data);
->>>>>>> 22a110995fd28d5b125ea364f445a32c6ab75b37
             $this->PersonModel->insert([
                 'type'=> strip_tags($this->input->post('type')),
                 'first_name'=> strip_tags($this->input->post('first_name')),
@@ -131,11 +126,7 @@ class Person extends CI_Controller{
             $result = $this->PersonModel->delete($id);
             if ($this->db->trans_status() === FALSE) {
                 $this->db->trans_rollback();
-<<<<<<< HEAD
-                echo utils::response("delete failed!", "error");
-=======
-                echo utils::response("Update failed!", "error");
->>>>>>> 22a110995fd28d5b125ea364f445a32c6ab75b37
+                echo utils::response("delete failed!", "error");              
                 return false;
             } else {
                 $this->db->trans_commit();
@@ -144,11 +135,7 @@ class Person extends CI_Controller{
             }
         } catch (Exception $e) {
             log_message('Error: ', $e->getMessage());
-<<<<<<< HEAD
-            echo utils::response("Could not delete this time. Please try again later!", "error");
-=======
             echo utils::response("Could not register this time. Please try again later!", "error");
->>>>>>> 22a110995fd28d5b125ea364f445a32c6ab75b37
             return false;
         }         
     }
